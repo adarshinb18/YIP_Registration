@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS for login form -->
+    <style>
+        body {
+            background-image: url('https://1.bp.blogspot.com/-pB7tZ04faWg/YSoe9QDavuI/AAAAAAAAHX8/BrDNPn5QeV4hAeJXDSIRXyyOTw6GWbLhgCLcBGAsYHQ/s590/yip.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-form {
+            max-width: 900px; /* Increased width of the form */
+            padding: 80px;
+            border: 2px solid #ced4da;
+            border-radius: 10px;
+            background-color: ; /* Slightly transparent background */
+        }
+        .login-form h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login-form label {
+            font-weight: bold;
+        }
+        .login-form button {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <h2>-------Login-------</h2>
+        <br>
+        {% if messages %}
+            <div class="alert alert-danger">
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <form method="post" id="myform">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
